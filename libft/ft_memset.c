@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/23 18:35:33 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/23 18:35:34 by maboualy         ###   ########.fr       */
+/*   Created: 2025/05/23 18:35:58 by maboualy          #+#    #+#             */
+/*   Updated: 2025/05/23 18:35:59 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include <string.h>
+
+void	*ft_memset(void *ptr, int c, size_t n)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	unsigned char	*dst;
+
+	dst = (unsigned char *) ptr;
+	while (n > 0)
 	{
-		return (1);
+		*dst = c;
+		dst++;
+		n--;
 	}
-	return (0);
+	return (ptr);
 }

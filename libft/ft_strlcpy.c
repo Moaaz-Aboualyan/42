@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/23 18:35:33 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/23 18:35:34 by maboualy         ###   ########.fr       */
+/*   Created: 2025/05/23 18:37:01 by maboualy          #+#    #+#             */
+/*   Updated: 2025/05/23 18:59:40 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include <string.h>
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	unsigned int	length;
+	size_t		i;
+
+	i = 0;
+	while (src[i] != 0 && i < (size - 1))
 	{
-		return (1);
+		dst[i] = src[i];
+		i++;
 	}
-	return (0);
+	length = i;
+	dst[i] = 0;
+	while (src[i] != 0)
+	{
+		length++;
+	}
+	return (length);
 }
