@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/23 18:37:01 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/24 10:40:55 by maboualy         ###   ########.fr       */
+/*   Created: 2025/05/24 14:36:40 by maboualy          #+#    #+#             */
+/*   Updated: 2025/05/24 16:08:00 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stddef.h>
+#include <stdlib.h>
+#include "ft_strlen.c"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned int	length;
-	size_t			i;
+	char	*s2;
+	int		i;
 
+	if (!s)
+		return (0);
+	if (len > (ft_strlen(s) - start))
+		s2 = malloc((ft_strlen(s) - start + 1) * sizeof(char));
+	else
+		s2 = malloc(len + 1);
+	if (!s2)
+		return (0);
 	i = 0;
-	while (src[i] != 0 && i < (size - 1))
+	while (s[start + i] && i < len)
 	{
-		dst[i] = src[i];
+		s2[i] = s[start + i];
 		i++;
 	}
-	length = i;
-	dst[i] = 0;
-	while (src[i] != 0)
-	{
-		length++;
-	}
-	return (length);
+	s2[i] = 0;
+	return (s2);
 }

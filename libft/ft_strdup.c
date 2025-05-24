@@ -1,16 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/23 18:34:41 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/23 19:34:01 by maboualy         ###   ########.fr       */
+/*   Created: 2025/05/24 14:10:05 by maboualy          #+#    #+#             */
+/*   Updated: 2025/05/24 14:54:02 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include <stddef.h>
+#include <stdlib.h>
+#include "libft.h"
+
+char	*ft_strdup(const char *s)
 {
-	return ((c >= 32 && c < 127));
+	char	*s2;
+	int		i;
+
+	s2 = malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!s2)
+		return (0);
+	i = 0;
+	while (s[i])
+	{
+		s2[i] = s[i];
+		i++;
+	}
+	s2[i] = 0;
+	return (s2);
 }

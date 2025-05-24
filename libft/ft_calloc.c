@@ -1,16 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/23 18:34:41 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/23 19:34:01 by maboualy         ###   ########.fr       */
+/*   Created: 2025/05/24 14:10:05 by maboualy          #+#    #+#             */
+/*   Updated: 2025/05/24 14:19:21 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include <stddef.h>
+#include <stdlib.h>
+
+void	*ft_calloc(size_t n, size_t size)
 {
-	return ((c >= 32 && c < 127));
+	unsigned char	*ptr;
+	size_t			i;
+
+	ptr = malloc(n * size);
+	if (!ptr)
+		return (0);
+	i = 0;
+	while (i < (n * size))
+	{
+		ptr[i] = 0;
+		i++;
+	}
+	return (ptr);
 }

@@ -1,16 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/23 18:34:41 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/23 19:34:01 by maboualy         ###   ########.fr       */
+/*   Created: 2025/05/24 11:03:47 by maboualy          #+#    #+#             */
+/*   Updated: 2025/05/24 11:52:05 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include <stddef.h>
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	return ((c >= 32 && c < 127));
+	size_t	i;
+
+	i = 0;
+	while (n)
+	{
+		if (*((unsigned char *)(s + i)) == (unsigned char) c)
+			return ((void *)(s + i));
+		i++;
+		n--;
+	}
+	return (0);
 }

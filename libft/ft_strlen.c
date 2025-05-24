@@ -6,7 +6,7 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:35:15 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/23 18:35:17 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/23 19:34:49 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 size_t	ft_strlen(const char *str)
 {
-	int	length;
+	size_t	length;
 
 	length = 0;
 	while (str[length] != 0)
-	{
 		length++;
-	}
 	return (length);
 }

@@ -1,16 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/23 18:34:41 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/23 19:34:01 by maboualy         ###   ########.fr       */
+/*   Created: 2025/05/24 11:32:18 by maboualy          #+#    #+#             */
+/*   Updated: 2025/05/24 12:01:52 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include <stddef.h>
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	return ((c >= 32 && c < 127));
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
+
+	i = 0;
+	while (n)
+	{
+		str1 = (unsigned char *)(s1 + i);
+		str2 = (unsigned char *)(s2 + i);
+		if (*str1 != *str2)
+		{
+			return (*str1 - *str2);
+		}
+		i++;
+		n--;
+	}
+	return (0);
 }
