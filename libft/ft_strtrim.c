@@ -42,11 +42,3 @@ int	charinstr(int c, const char *s)
 	}
 	return (0);
 }
-
-#include <stdio.h>
-int	main(void)
-{
-	char	s1[] = "1234asdfasdf5909asdfasdf870";
-	char	s2[] = "12345667890";
-	printf("%s\n", ft_strtrim(s1, s2));
-}

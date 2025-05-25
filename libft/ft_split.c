@@ -35,7 +35,7 @@ char	**ft_split(char *s, char *c)
 			return (0);
 		while (j < word_length(s, c, i))
 		{
-			strs[i][j] = str[(word_index(s, c, i) + j)];
+			strs[i][j] = s[(word_index(s, c, i) + j)];
 			j++;
 		}
 		strs[i][j] = 0;
