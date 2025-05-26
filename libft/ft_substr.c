@@ -6,18 +6,18 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:36:40 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/24 16:08:00 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/26 13:33:00 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdlib.h>
-#include "ft_strlen.c"
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*s2;
-	int		i;
+	size_t	i;
 
 	if (!s)
 		return (0);

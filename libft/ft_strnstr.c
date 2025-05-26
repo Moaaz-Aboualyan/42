@@ -6,13 +6,13 @@
 /*   By: maboualy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:43:34 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/24 12:32:26 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/26 13:19:06 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-char	*ft_strnstr(const char	*big, const char	*little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t		i;
 	size_t		j;

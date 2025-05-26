@@ -6,16 +6,16 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:16:18 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/24 15:52:44 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/26 13:18:16 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	char_in_set(char c, char *charset);
-int	count_words(char *str, char *charset);
-int	word_index(char *str, char *charset, int index);
-int	word_length(char *str, char *charset, int index);
+static int	char_in_set(char c, char *charset);
+static int	count_words(char *str, char *charset);
+static int	word_index(char *str, char *charset, int index);
+static int	word_length(char *str, char *charset, int index);
 
 char	**ft_split(char *s, char *c)
 {
@@ -45,7 +45,7 @@ char	**ft_split(char *s, char *c)
 	return (strs);
 }
 
-int	char_in_set(char c, char *charset)
+static int	char_in_set(char c, char *charset)
 {
 	int	i;
 
@@ -59,7 +59,7 @@ int	char_in_set(char c, char *charset)
 	return (0);
 }
 
-int	word_length(char *str, char *charset, int index)
+static int	word_length(char *str, char *charset, int index)
 {
 	int	i;
 	int	count;
@@ -85,7 +85,7 @@ int	word_length(char *str, char *charset, int index)
 	return (length);
 }
 
-int	word_index(char *str, char *charset, int index)
+static int	word_index(char *str, char *charset, int index)
 {
 	int	i;
 	int	count;
@@ -108,7 +108,7 @@ int	word_index(char *str, char *charset, int index)
 	return (-1);
 }
 
-int	count_words(char *str, char *charset)
+static int	count_words(char *str, char *charset)
 {
 	int	i;
 	int	count;
