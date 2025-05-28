@@ -6,13 +6,11 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:37:01 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/24 10:41:10 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 13:42:28 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
@@ -32,9 +30,10 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	}
 	length = i;
 	dst[i] = 0;
-	while (src[i] != 0)
+	while (src[length] != 0)
 	{
 		length++;
+		i++;
 	}
 	return (length);
 }

@@ -6,11 +6,11 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:35:25 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/26 14:30:33 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:00:21 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	ft_bzero(void *ptr, size_t n)
 {

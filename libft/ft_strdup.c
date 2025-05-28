@@ -6,12 +6,10 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:10:05 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/24 14:54:02 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:02:50 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strdup(const char *s)

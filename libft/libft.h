@@ -6,7 +6,7 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:26:13 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/27 18:39:03 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:12:51 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 // Mandatory part
 int		ft_isalpha(int c);
@@ -50,9 +52,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-// Extra helper functions
-int		ft_iswhitespace(int c);
-int		intasstrlen(int n);
 // Bonus part
 typedef struct s_list
 {

@@ -6,11 +6,11 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:35:51 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/23 18:35:51 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:00:29 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

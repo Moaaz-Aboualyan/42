@@ -6,13 +6,13 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:31:05 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/26 13:31:52 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:04:02 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int	intasstrlen(int n);
+static int	intasstrlen(int n);
 
 char	*ft_itoa(int n)
 {
@@ -42,7 +42,7 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-int	intasstrlen(int n)
+static int	intasstrlen(int n)
 {
 	int	len;
 

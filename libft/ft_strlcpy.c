@@ -6,16 +6,15 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:37:01 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/24 10:40:55 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:54:10 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	unsigned int	length;
-	size_t			i;
+	size_t	i;
 
 	i = 0;
 	while (src[i] != 0 && i < (size - 1))
@@ -23,11 +22,5 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		dst[i] = src[i];
 		i++;
 	}
-	length = i;
-	dst[i] = 0;
-	while (src[i] != 0)
-	{
-		length++;
-	}
-	return (length);
+	return (ft_strlen(src));
 }

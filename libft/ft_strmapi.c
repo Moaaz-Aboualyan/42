@@ -6,11 +6,10 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:21:22 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/26 13:24:08 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:04:21 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))

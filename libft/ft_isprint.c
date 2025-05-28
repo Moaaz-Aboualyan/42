@@ -6,9 +6,11 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:34:41 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/23 19:34:01 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 13:46:40 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

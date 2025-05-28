@@ -6,7 +6,7 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 17:36:22 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/27 17:36:23 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 13:43:02 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	{
 		tmp = (*lst)->next;
 		ft_lstdelone(*lst, del);
-		*lst = tmp->next;
+		*lst = tmp;
 	}
 	*lst = 0;
 }

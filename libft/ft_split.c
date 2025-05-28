@@ -6,13 +6,11 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:16:18 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/27 18:57:15 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:03:44 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
-#include <stdio.h>
 
 static int	count_words(char const *str, char c);
 static int	word_index(char const *str, char c, int index);
@@ -101,6 +99,8 @@ static int	count_words(char const *str, char c)
 	int	i;
 	int	count;
 
+	if (!str)
+		return (0);
 	i = 0;
 	count = 0;
 	while (str[i] != 0)

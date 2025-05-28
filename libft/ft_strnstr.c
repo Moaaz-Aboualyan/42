@@ -6,11 +6,11 @@
 /*   By: maboualy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:43:34 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/26 13:19:06 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:41:36 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -19,13 +19,13 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	int			found;
 
 	i = 0;
-	if (little[i] == 0)
+	if (!little[i])
 		return ((char *) big);
-	while (big[i] != 0 && i < len)
+	while (big[i] && (i + ft_strlen(little) - 1) < len)
 	{
 		j = 0;
 		found = 1;
-		while (little[j] != 0)
+		while (little[j])
 		{
 			if (big[i + j] == 0)
 				return (0);
@@ -39,3 +39,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (0);
 }
+
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	char str[] = "aaabcabcd";
+// 	printf("%s\n", ft_strnstr(str, "cd", 8));
+// }

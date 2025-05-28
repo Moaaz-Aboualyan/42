@@ -6,9 +6,11 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:34:33 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/23 18:34:49 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 13:59:38 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isascii(int c)
 {

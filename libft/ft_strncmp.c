@@ -6,11 +6,11 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:32:18 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/24 11:38:49 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:02:10 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

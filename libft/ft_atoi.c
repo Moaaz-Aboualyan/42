@@ -6,13 +6,13 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 12:32:08 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/24 12:53:31 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:03:02 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_iswhitespace(int c);
+static int	ft_iswhitespace(int c);
 
 int	ft_atoi(const char *nptr)
 {
@@ -43,7 +43,7 @@ int	ft_atoi(const char *nptr)
 	return (n);
 }
 
-int	ft_iswhitespace(int c)
+static int	ft_iswhitespace(int c)
 {
 	return (c == ' '
 		|| c == '\t'

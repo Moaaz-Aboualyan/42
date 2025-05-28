@@ -6,9 +6,11 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:35:43 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/23 18:35:44 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 13:59:22 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {

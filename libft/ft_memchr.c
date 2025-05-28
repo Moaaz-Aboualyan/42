@@ -6,11 +6,11 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:03:47 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/24 11:52:05 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:02:19 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

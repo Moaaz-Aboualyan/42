@@ -6,9 +6,11 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 10:53:58 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/24 11:01:37 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:00:58 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_toupper(int c)
 {

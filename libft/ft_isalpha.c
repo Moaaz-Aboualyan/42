@@ -6,15 +6,15 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:35:33 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/23 18:35:34 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 13:59:13 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-	{
 		return (1);
-	}
 	return (0);
 }

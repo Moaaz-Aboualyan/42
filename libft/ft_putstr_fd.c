@@ -6,11 +6,10 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:24:43 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/26 13:25:01 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:05:02 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)

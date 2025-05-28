@@ -6,11 +6,10 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:56:59 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/24 15:04:41 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:03:24 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)

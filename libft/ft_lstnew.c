@@ -6,12 +6,11 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 15:16:52 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/27 17:37:55 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:05:24 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 t_list	*ft_lstnew(void *content)
 {

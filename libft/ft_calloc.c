@@ -6,12 +6,11 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:10:05 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/24 14:19:21 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:48:09 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_calloc(size_t n, size_t size)
 {
