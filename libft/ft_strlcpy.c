@@ -17,10 +17,20 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	i;
 
 	i = 0;
-	while (src[i] != 0 && i < (size - 1))
+	while (src[i] != 0 && i < (size ))
 	{
 		dst[i] = src[i];
 		i++;
 	}
 	return (ft_strlen(src));
+}
+
+#include <stdio.h>
+#include <string.h>
+int main(void)
+{
+	char src[] = "coucou";
+	char dest[10]; memset(dest, 'A', 10);
+	size_t returnvalue = strlcpy(dest, src, 0);
+	printf("1 me: %s, %s, %zu ", src, dest, returnvalue);
 }

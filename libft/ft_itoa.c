@@ -12,37 +12,39 @@
 
 #include "libft.h"
 
-static int	intasstrlen(int n);
+static int	intasstrlen(long n);
 
 char	*ft_itoa(int n)
 {
 	char	*str;
 	int		i;
 	int		strlen;
+	long	nbr;
 
-	strlen = intasstrlen(n);
+	strlen = intasstrlen(nbr);
 	str = malloc(strlen * sizeof(char));
+	nbr = n;
 	if (!str)
 		return (0);
-	if (n == 0)
+	if (nbr == 0)
 		str[0] = '0';
-	if (n < 0)
+	if (nbr < 0)
 	{
 		str[0] = '-';
-		n = -n;
+		nbr = -nbr;
 	}
 	i = 1;
-	while (n > 0)
+	while (nbr > 0)
 	{
-		str[strlen - i] = ((n % 10) + '0');
+		str[strlen - i] = ((nbr % 10) + '0');
 		i++;
-		n /= 10;
+		nbr /= 10;
 	}
 	str[strlen] = 0;
 	return (str);
 }
 
-static int	intasstrlen(int n)
+static int	intasstrlen(long n)
 {
 	int	len;
 
