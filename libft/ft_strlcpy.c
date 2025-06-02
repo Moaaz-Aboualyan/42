@@ -6,7 +6,7 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:37:01 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/28 14:54:10 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/06/02 09:47:37 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,15 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t	i;
+	size_t		src_len;
 
-	i = 0;
-	while (src[i] != 0 && i < (size ))
+	src_len = ft_strlen(src);
+	if (src_len + 1 < size)
+		ft_memcpy(dst, src, src_len + 1);
+	else if (size != 0)
 	{
-		dst[i] = src[i];
-		i++;
+		ft_memcpy(dst, src, size - 1);
+		dst[size - 1] = 0;
 	}
-	return (ft_strlen(src));
-}
-
-#include <stdio.h>
-#include <string.h>
-int main(void)
-{
-	char src[] = "coucou";
-	char dest[10]; memset(dest, 'A', 10);
-	size_t returnvalue = strlcpy(dest, src, 0);
-	printf("1 me: %s, %s, %zu ", src, dest, returnvalue);
+	return (src_len);
 }

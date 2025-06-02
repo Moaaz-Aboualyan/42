@@ -6,7 +6,7 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 11:03:47 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/28 14:27:24 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/06/02 08:03:41 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
-	char cchar;
+	int		i;
+	char	cchar;
 
 	i = 0;
 	cchar = c;

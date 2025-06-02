@@ -6,58 +6,72 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:31:05 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/28 14:04:02 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/06/02 10:22:08 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	intasstrlen(long n);
+static int	intlen(long n);
+static char	*set_string(long nbr, int len);
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		i;
-	int		strlen;
 	long	nbr;
+	char	*str;
+	int		len;
+	int		i;
 
-	strlen = intasstrlen(nbr);
-	str = malloc(strlen * sizeof(char));
 	nbr = n;
+	len = intlen(nbr);
+	str = set_string(nbr, len);
 	if (!str)
-		return (0);
-	if (nbr == 0)
-		str[0] = '0';
+		return (NULL);
+	i = len - 1;
 	if (nbr < 0)
 	{
-		str[0] = '-';
 		nbr = -nbr;
+		str[0] = '-';
 	}
-	i = 1;
 	while (nbr > 0)
 	{
-		str[strlen - i] = ((nbr % 10) + '0');
-		i++;
-		nbr /= 10;
+		str[i] = (nbr % 10) + '0';
+		nbr = nbr / 10;
+		i--;
 	}
-	str[strlen] = 0;
+	str[len] = '\0';
 	return (str);
 }
 
-static int	intasstrlen(long n)
+static char	*set_string(long nbr, int len)
+{
+	char	*str;
+
+	str = malloc((len + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	if (nbr == 0)
+		str[0] = '0';
+	return (str);
+}
+
+static int	intlen(long n)
 {
 	int	len;
 
 	len = 0;
 	if (n <= 0)
+		len++;
+	while (n != 0)
 	{
 		len++;
-		n = -n;
-	}
-	while (n > 0)
-	{
-		n /= 10;
-		len++;
+		n = n / 10;
 	}
 	return (len);
 }
+//
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	printf("%s\n", ft_itoa(0));
+// }

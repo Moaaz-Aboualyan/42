@@ -6,7 +6,7 @@
 /*   By: maboualy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:43:34 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/28 14:41:36 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/06/02 10:25:36 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (0);
 }
-
+//
 // #include <stdio.h>
 // int	main(void)
 // {

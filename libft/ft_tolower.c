@@ -6,9 +6,11 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 10:53:58 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/24 11:01:50 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/06/02 10:24:29 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_tolower(int c)
 {
