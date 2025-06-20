@@ -6,7 +6,7 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 14:29:24 by maboualy          #+#    #+#             */
-/*   Updated: 2025/06/13 19:37:32 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/06/14 15:54:16 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ typedef struct fd_node
 	struct fd_node	*next;
 }	t_fd_node;
 char	*get_next_line(int fd);
-int		find_new_line(char **buffer, int fd, t_fd_node **fd_list);
-ssize_t	read_next(char **buffer, int fd);
-char	**get_buffer(int fd, t_fd_node **fd_list);
-void	remove_fd_node(int fd, t_fd_node **fd_list);
+int		find_new_line(int fd, char **leftover,
+			t_fd_node **leftovers, char *buffer);
+char	**get_leftover(int fd, t_fd_node **leftovers);
+void	remove_fd_node(int fd, t_fd_node **leftovers);
+char	*ft_strdup(const char *s);
 int		ft_strchr(const char *s, int c);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char *s1, char const *s2);
-char	*ft_strdup(const char *s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 14:28:20 by maboualy          #+#    #+#             */
-/*   Updated: 2025/06/13 19:44:01 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/06/14 15:54:36 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,107 +14,92 @@
 
 char	*get_next_line(int fd)
 {
-	static t_fd_node	*fd_list;
-	char				**buffer;
+	static t_fd_node	*leftovers;
+	char				**leftover;
+	char				*buffer;
 	char				*line;
-	char				*tmp;
 	int					new_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buffer = get_buffer(fd, &fd_list);
-	if (!(*buffer))
+	leftover = get_leftover(fd, &leftovers);
+	if (!(*leftover))
 		return (NULL);
-	if (!find_new_line(buffer, fd, &fd_list))
+	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!buffer)
 		return (NULL);
-	new_line = ft_strchr(*buffer, '\n');
+	new_line = find_new_line(fd, leftover, &leftovers, buffer);
+	free(buffer);
 	if (new_line == -1)
-		new_line = ft_strlen(*buffer);
-	line = ft_substr(*buffer, 0, new_line + 1);
-	tmp = *buffer;
-	*buffer = ft_substr(*buffer, new_line + 1, ft_strlen(*buffer) - new_line);
-	free(tmp);
+		return (NULL);
+	buffer = *leftover;
+	line = ft_substr(*leftover, 0, new_line + 1);
+	*leftover = ft_substr(*leftover, new_line + 1,
+			ft_strlen(*leftover) - new_line);
+	free (buffer);
 	return (line);
 }
 
-int	find_new_line(char **buffer, int fd, t_fd_node **fd_list)
+int	find_new_line(int fd, char **leftover, t_fd_node **leftovers, char *buffer)
 {
-	ssize_t	bytes_read;
-	int		new_line;
+	ssize_t		bytes_read;
+	int			new_line;
 
-	new_line = ft_strchr(*buffer, '\n');
+	new_line = ft_strchr(*leftover, '\n');
 	while (new_line == -1)
 	{
-		bytes_read = read_next(buffer, fd);
-		if (bytes_read == -1)
-		{
-			remove_fd_node(fd, fd_list);
-			return (0);
-		}
-		if (bytes_read == 0)
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		if (bytes_read <= 0)
 			break ;
-		new_line = ft_strchr(*buffer, '\n');
+		buffer[bytes_read] = '\0';
+		*leftover = ft_strjoin(*leftover, buffer);
+		new_line = ft_strchr(*leftover, '\n');
 	}
-	if (!(*buffer) || (!bytes_read && (*buffer)[0] == '\0'))
+	if (!(*leftover) || (*leftover)[0] == '\0')
 	{
-		remove_fd_node(fd, fd_list);
-		return (0);
-	}
-	return (1);
-}
-
-ssize_t	read_next(char **buffer, int fd)
-{
-	char	*tmp;
-	ssize_t	bytes_read;
-
-	tmp = malloc(BUFFER_SIZE + 1);
-	if (!tmp)
+		remove_fd_node(fd, leftovers);
 		return (-1);
-	bytes_read = read(fd, tmp, BUFFER_SIZE);
-	if (bytes_read <= 0)
-	{
-		free(tmp);
-		return (bytes_read);
 	}
-	tmp[bytes_read] = '\0';
-	*buffer = ft_strjoin(*buffer, tmp);
-	free(tmp);
-	return (bytes_read);
+	if (new_line == -1)
+		return (ft_strlen(*leftover));
+	return (new_line);
 }
 
-char	**get_buffer(int fd, t_fd_node **fd_list)
+char	**get_leftover(int fd, t_fd_node **leftovers)
 {
-	t_fd_node	*temp;
+	t_fd_node	*tmp;
 	t_fd_node	*new;
 
-	temp = *fd_list;
-	while (temp && temp->fd != fd)
-		temp = temp->next;
-	if (!temp)
+	tmp = *leftovers;
+	while (tmp && tmp->fd != fd)
+		tmp = tmp->next;
+	if (!tmp)
 	{
 		new = malloc(sizeof(t_fd_node));
 		if (!new)
 			return (NULL);
 		new->fd = fd;
-		new->buffer = malloc(1 * sizeof(char));
+		new->buffer = malloc(sizeof(char));
 		if (!(new->buffer))
+		{
+			free(new);
 			return (NULL);
+		}
 		new->buffer[0] = '\0';
-		new->next = *fd_list;
-		*fd_list = new;
+		new->next = *leftovers;
+		*leftovers = new;
 		return (&new->buffer);
 	}
 	else
-		return (&temp->buffer);
+		return (&tmp->buffer);
 }
 
-void	remove_fd_node(int fd, t_fd_node **fd_list)
+void	remove_fd_node(int fd, t_fd_node **leftovers)
 {
 	t_fd_node	*curr;
 	t_fd_node	*prev;
 
-	curr = *fd_list;
+	curr = *leftovers;
 	prev = NULL;
 	while (curr)
 	{
@@ -123,7 +108,7 @@ void	remove_fd_node(int fd, t_fd_node **fd_list)
 			if (prev)
 				prev->next = curr->next;
 			else
-				*fd_list = curr->next;
+				*leftovers = curr->next;
 			free(curr->buffer);
 			free(curr);
 			return ;

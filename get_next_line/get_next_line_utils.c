@@ -6,11 +6,29 @@
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 14:29:14 by maboualy          #+#    #+#             */
-/*   Updated: 2025/06/13 20:31:41 by maboualy         ###   ########.fr       */
+/*   Updated: 2025/06/14 16:20:00 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*ft_strdup(const char *s)
+{
+	char	*s2;
+	int		i;
+
+	s2 = malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!s2)
+		return (0);
+	i = 0;
+	while (s[i])
+	{
+		s2[i] = s[i];
+		i++;
+	}
+	s2[i] = 0;
+	return (s2);
+}
 
 int	ft_strchr(const char *s, int c)
 {
@@ -28,33 +46,6 @@ int	ft_strchr(const char *s, int c)
 	if (s[i] == cchar)
 		return (i);
 	return (-1);
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*s2;
-	size_t	i;
-
-	if (!s)
-		return (0);
-	if (start > ft_strlen(s))
-	{
-		return (ft_strdup(""));
-	}
-	if (len > (ft_strlen(s) - start))
-		s2 = malloc((ft_strlen(s) - start + 1) * sizeof(char));
-	else
-		s2 = malloc(len + 1);
-	if (!s2)
-		return (0);
-	i = 0;
-	while (s[start + i] && i < len)
-	{
-		s2[i] = s[start + i];
-		i++;
-	}
-	s2[i] = 0;
-	return (s2);
 }
 
 size_t	ft_strlen(const char *str)
@@ -94,18 +85,25 @@ char	*ft_strjoin(char *s1, char const *s2)
 	return (s3);
 }
 
-char	*ft_strdup(const char *s)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*s2;
-	int		i;
+	size_t	i;
 
-	s2 = malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!s)
+		return (0);
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > (ft_strlen(s) - start))
+		s2 = malloc((ft_strlen(s) - start + 1) * sizeof(char));
+	else
+		s2 = malloc(len + 1);
 	if (!s2)
 		return (0);
 	i = 0;
-	while (s[i])
+	while (s[start + i] && i < len)
 	{
-		s2[i] = s[i];
+		s2[i] = s[start + i];
 		i++;
 	}
 	s2[i] = 0;
