@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/27 17:36:22 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/28 13:43:02 by maboualy         ###   ########.fr       */
+/*   Created: 2025/06/27 15:18:27 by maboualy          #+#    #+#             */
+/*   Updated: 2025/08/15 16:39:04 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include <stdarg.h>
+# include <unistd.h>
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
-{
-	t_list	*tmp;
+void	ft_putnbr_base(long nbr, char *base, int *length);
+void	ft_putnbr_fd(long n, int fd, int *length);
+int		ft_printf(const char *format, ...);
 
-	while (*lst)
-	{
-		tmp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = tmp;
-	}
-	*lst = 0;
-}
+#endif 

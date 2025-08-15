@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maboualy <moaazahmedaboualyan@gmail.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/23 18:35:25 by maboualy          #+#    #+#             */
-/*   Updated: 2025/05/28 14:00:21 by maboualy         ###   ########.fr       */
+/*   Created: 2025/05/26 13:22:27 by maboualy          #+#    #+#             */
+/*   Updated: 2025/08/15 15:44:42 by maboualy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_bzero(void *ptr, size_t n)
+void	ft_putnbr_fd(long n, int fd, int *length)
 {
-	unsigned char	*dst;
+	int	number;
 
-	dst = (unsigned char *) ptr;
-	while (n > 0)
+	if (n < 0)
 	{
-		*dst = (unsigned char) 0;
-		dst++;
-		n--;
+		write(fd, &"-", 1);
+		(*length)++;
+		n = -n;
+	}
+	if (n >= 0 && n < 10)
+	{
+		number = n + '0';
+		write(fd, &number, 1);
+		(*length)++;
+	}
+	else if (n > 0)
+	{
+		ft_putnbr_fd(n / 10, fd, length);
+		ft_putnbr_fd(n % 10, fd, length);
 	}
 }
