@@ -14,6 +14,7 @@
 
 int	ft_putstr(const char *s);
 int	parse(const char *format, int *i, va_list args);
+int	parsemore(const char *format, int *i, va_list args);
 
 int	ft_printf(const char *format, ...)
 {
@@ -52,8 +53,6 @@ int	parse(const char *format, int *i, va_list args)
 		c = va_arg(args, int);
 		length += write(1, &c, 1);
 	}
-	else if (format[*i] == 's')
-		length += ft_putstr(va_arg(args, char *));
 	else if (format[*i] == 'p')
 	{
 		ptr = va_arg(args, void *);
@@ -65,10 +64,21 @@ int	parse(const char *format, int *i, va_list args)
 			ft_putnbr_base((unsigned long)ptr, "0123456789abcdef", &length);
 		}
 	}
+	length += parsemore(format, i, args);
+	return (length);
+}
+
+int	parsemore(const char *format, int *i, va_list args)
+{
+	int	length;
+
+	length = 0;
+	if (format[*i] == 's')
+		length += ft_putstr(va_arg(args, char *));
 	else if (format[*i] == 'x')
-		ft_putnbr_base(va_arg(args, long), "0123456789abcdef", &length);
+		ft_putnbr_base(va_arg(args, unsigned int), "0123456789abcdef", &length);
 	else if (format[*i] == 'X')
-		ft_putnbr_base(va_arg(args, long), "0123456789ABCDEF", &length);
+		ft_putnbr_base(va_arg(args, unsigned int), "0123456789ABCDEF", &length);
 	else if (format[*i] == 'd' || format[*i] == 'i')
 		ft_putnbr_fd(va_arg(args, int), 1, &length);
 	else if (format[*i] == 'u')

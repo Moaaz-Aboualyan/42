@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_printf.h"
 
 int	ft_strlen(char *str)
 {
@@ -46,29 +46,21 @@ int	validate(char *base)
 	return (0);
 }
 
-void	ft_putnbr_base(long nbr, char *base, int *length)
+void	ft_putnbr_base(unsigned long nbr, char *base, int *length)
 {
-	long	number;
-	int		base_length;
+	unsigned long	base_length;
 
 	if (validate(base) == 1)
 		return ;
-	number = (long) nbr;
-	if (nbr < 0)
-	{
-		write(1, "-", 1);
-		(*length)++;
-		number = -number;
-	}
 	base_length = ft_strlen(base);
-	if (number < base_length)
+	if (nbr < base_length)
 	{
-		write(1, &base[number], 1);
+		write(1, &base[nbr], 1);
 		(*length)++;
 	}
 	else
 	{
-		ft_putnbr_base((number / base_length), base, length);
-		ft_putnbr_base((number % base_length), base, length);
+		ft_putnbr_base((nbr / base_length), base, length);
+		ft_putnbr_base((nbr % base_length), base, length);
 	}
 }

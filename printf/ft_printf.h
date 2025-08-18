@@ -14,8 +14,9 @@
 # define FT_PRINTF_H
 # include <stdarg.h>
 # include <unistd.h>
+# include <limits.h>
 
-void	ft_putnbr_base(long nbr, char *base, int *length);
+void	ft_putnbr_base(unsigned long nbr, char *base, int *length);
 void	ft_putnbr_fd(long n, int fd, int *length);
 int		ft_printf(const char *format, ...);
 
